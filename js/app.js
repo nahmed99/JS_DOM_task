@@ -1,16 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('JavaScript has loaded');
-
-  const coolButton = document.querySelector('#button');
-  coolButton.addEventListener('click', handleOurButtonClick);
-});
-
-
-const handleOurButtonClick = function() {
-  console.log("The button has been clicked! 🧨")
-}
-
-
 /*
 
   The Events
@@ -28,3 +15,21 @@ const handleOurButtonClick = function() {
   3. The function to run (in this case: arrow function)
 
 */
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('JavaScript has loaded');
+
+  const coolButton = document.querySelector('#button');
+  coolButton.addEventListener('click', handleOurButtonClick);
+});
+
+
+const handleOurButtonClick = function() {
+  //console.log("The button has been clicked! 🧨")
+
+  // 'grab' the button-result id and then manipulate it.
+  const resultParagraph = document.querySelector('#button-result');
+  resultParagraph.textContent = "That button has definetely been clicked!!!";
+}
+
+

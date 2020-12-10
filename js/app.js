@@ -46,6 +46,8 @@ const handleOurButtonClick = function() {
 };
 
 
+// Action the events
+
 const handleTextInput = function(anInputEvent) {
     /*
     console.log("Event Triggered"); //Each keystroke in the testbox will trigger an event...we don't want an event for each keystroke.

@@ -19,7 +19,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('JavaScript has loaded');
 
-  // Set up event listeners
+  // Set up event listeners - Event listeners
 
   const coolButton = document.querySelector('#button');
   coolButton.addEventListener('click', handleOurButtonClick); //Although handleOurButtonClick is a function, we don't use brackets at the end of its name at this point, otherwise it will be called/executed at this point. We don't want that.
@@ -31,7 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectEvent = document.querySelector('#select');
   selectEvent.addEventListener('change', handleSelectEvent);
 
+
+  // Form Event Listening
+  const coolForm = document.querySelector('#form');
+  coolForm.addEventListener('submit', handleFormSubmit);
+
 });
+
+
+// Handle the events - event handlers
 
 
 const handleOurButtonClick = function() {
@@ -46,11 +54,9 @@ const handleOurButtonClick = function() {
 };
 
 
-// Action the events
-
 const handleTextInput = function(anInputEvent) {
     /*
-    console.log("Event Triggered"); //Each keystroke in the testbox will trigger an event...we don't want an event for each keystroke.
+    console.log(anInputEvent); //Each keystroke in the testbox will trigger an event...we don't want an event for each keystroke.
     console.log(anEvent.target.value);
     */
 
@@ -65,4 +71,21 @@ const handleSelectEvent = function(aSelection) {
     resultParagraph.textContent = `You have selected: ${aSelection.target.value}`;
 };
 
+
+const handleFormSubmit = function(submitEvent) {
+  
+  submitEvent.preventDefault(); // Stops a p;ost request taking place...
+  /*
+  console.log(submitEvent); //check that the code works so far...
+  console.log(submitEvent.target); 
+  console.log(submitEvent.target.first_name); 
+  console.log(submitEvent.target.first_name.value); 
+  */
+
+  const resultParagraph = document.querySelector('#form-result');
+  const firstName = submitEvent.target.first_name.value;
+  const lastName = submitEvent.target.last_name.value;
+  resultParagraph.textContent = `It's going to be ${firstName} ${lastName}`;
+
+}
 
